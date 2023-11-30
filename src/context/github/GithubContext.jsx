@@ -48,12 +48,19 @@ export const GithubProvider = ({ children }) => {
       type: "SET_LOADING",
     });
 
+  //클리어 버튼
+  const clearUsers = () =>
+    dispatch({
+      type: "CLEAR_USERS",
+    });
+
   return (
     <GithubContext.Provider
       value={{
         users: state.users,
         loading: state.loading,
         searchUsers, //동일할땐 생략가능
+        clearUsers,
       }}
     >
       {children}
