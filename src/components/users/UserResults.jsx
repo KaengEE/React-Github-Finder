@@ -11,8 +11,6 @@ function UserResults() {
   //context
   const { users, loading } = useContext(GithubContext);
 
-  useEffect(() => {}, []); //앱 시작시 실행됨
-
   //로딩이 아닐때 표시, 로딩일때 로딩표시
   if (!loading) {
     return (
