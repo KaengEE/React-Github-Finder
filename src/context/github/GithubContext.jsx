@@ -13,12 +13,13 @@ export const GithubProvider = ({ children }) => {
   //초기값
   const initialState = {
     users: [],
-    loading: true,
+    loading: false,
   };
 
   const [state, dispatch] = useReducer(githubReducer, initialState);
 
   const fetchUsers = async () => {
+    setLoading();
     const response = await fetch(`${GITHUB_URL}/users`, {
       headers: {
         Authorization: `token ${GITHUB_TOKEN}`,
@@ -33,6 +34,12 @@ export const GithubProvider = ({ children }) => {
       payload: data,
     });
   };
+
+  //로딩상태를 true로 업데이트하기 위한 dispatch
+  const setLoading = () =>
+    dispatch({
+      type: "SET_LOADING",
+    });
 
   return (
     <GithubContext.Provider
