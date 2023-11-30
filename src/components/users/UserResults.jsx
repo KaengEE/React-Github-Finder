@@ -9,11 +9,9 @@ function UserResults() {
   // const [loading, setLoading] = useState(true);
 
   //context
-  const { users, loading, fetchUsers } = useContext(GithubContext);
+  const { users, loading } = useContext(GithubContext);
 
-  useEffect(() => {
-    fetchUsers();
-  }, []); //앱 시작시 실행됨
+  useEffect(() => {}, []); //앱 시작시 실행됨
 
   //로딩이 아닐때 표시, 로딩일때 로딩표시
   if (!loading) {

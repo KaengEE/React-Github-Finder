@@ -17,7 +17,7 @@ export const GithubProvider = ({ children }) => {
   };
 
   const [state, dispatch] = useReducer(githubReducer, initialState);
-
+  //테스트용 유저조회
   const fetchUsers = async () => {
     setLoading();
     const response = await fetch(`${GITHUB_URL}/users`, {
