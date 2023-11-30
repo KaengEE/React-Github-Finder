@@ -29,6 +29,7 @@ function Navbar({ title }) {
   );
 }
 
+//디폴트 프롭스
 Navbar.defaultProps = {
   title: "Github Finder",
 };
