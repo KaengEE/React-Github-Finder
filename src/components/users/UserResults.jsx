@@ -1,28 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import Spinner from "../layout/Spinner";
 import UserItem from "./UserItem";
+import GithubContext from "../../context/github/GithubContext";
 
 function UserResults() {
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
   //로딩 - 시작시 데이터를 가져오기때문에 작업중(true)
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
+
+  //context
+  const { users, loading, fetchUsers } = useContext(GithubContext);
 
   useEffect(() => {
     fetchUsers();
   }, []); //앱 시작시 실행됨
-
-  const fetchUsers = async () => {
-    //console.log(`${import.meta.env.VITE_GITHUB_URL}/users`);
-    const response = await fetch(`${import.meta.env.VITE_GITHUB_URL}/users`, {
-      headers: {
-        Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`,
-      },
-    });
-    const data = await response.json();
-
-    setUsers(data);
-    setLoading(false); //로딩완료
-  };
 
   //로딩이 아닐때 표시, 로딩일때 로딩표시
   if (!loading) {
