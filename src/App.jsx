@@ -1,5 +1,15 @@
+import { BrowserRouter } from "react-router-dom";
+import Navbar from "./layout/Navbar";
+
 function App() {
-  return <h1 className="text-3xl font-bold underline">헬로우월드</h1>;
+  return (
+    <BrowserRouter>
+      <div className="flex flex-col justify-between h-screen">
+        <Navbar title="GitHub Finder" />
+        <main>컨텐츠</main>
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default App;
