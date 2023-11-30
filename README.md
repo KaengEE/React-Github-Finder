@@ -1,8 +1,16 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### GitHub API를 활용한 깃허브 이용자 검색 프로젝트
 
-Currently, two official plugins are available:
+> 유저를 검색하고, 해당유저의 프로필과 최근 Repositories를 확인할 수 있다.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## GitHub Finder🔎
+
+1. GitHub api 연동
+2. Tailwind CSS 사용
+3. React Router, React icons 라이브러리
+4. Reducer 사용
+
+## 배포링크
+
+<a href=""></a>
