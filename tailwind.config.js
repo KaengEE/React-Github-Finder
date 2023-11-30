@@ -6,4 +6,7 @@ export default {
     extend: {},
   },
   plugins: [require("daisyui")], //데이지UI적용
+  daisyui: {
+    themes: ["light", "dark", "cupcake"], //테마적용
+  },
 };
