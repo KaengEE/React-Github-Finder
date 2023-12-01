@@ -13,6 +13,7 @@ export const GithubProvider = ({ children }) => {
   //초기값
   const initialState = {
     users: [],
+    user: {},
     loading: false,
   };
 
@@ -42,6 +43,28 @@ export const GithubProvider = ({ children }) => {
     });
   };
 
+  //유저 1명의 정보
+  const getUsers = async (login) => {
+    setLoading(); //로딩상태
+
+    //https://api.github.com/users/:id
+    const response = await fetch(`${GITHUB_URL}/users?${login}`, {
+      headers: {
+        Authorization: `token ${GITHUB_TOKEN}`,
+      },
+    });
+    //아이디로 못찾을 경우
+    if (response.status === 404) {
+      window.location = "/notfound";
+    } else {
+      const data = await response.json();
+      dispatch({
+        type: "GET_USER",
+        payload: data.items,
+      });
+    }
+  };
+
   //로딩상태를 true로 업데이트하기 위한 dispatch
   const setLoading = () =>
     dispatch({
@@ -58,6 +81,7 @@ export const GithubProvider = ({ children }) => {
     <GithubContext.Provider
       value={{
         users: state.users,
+        user: state.user,
         loading: state.loading,
         searchUsers, //동일할땐 생략가능
         clearUsers,
