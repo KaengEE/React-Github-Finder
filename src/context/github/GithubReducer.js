@@ -22,6 +22,12 @@ const githubReducer = (state, action) => {
         user: action.payload, //user에 저장
         loading: false,
       };
+    case "GET_REPOS":
+      return {
+        ...state,
+        repos: action.payload, //repos에 저장
+        loading: false,
+      };
     default:
       return state;
   }
