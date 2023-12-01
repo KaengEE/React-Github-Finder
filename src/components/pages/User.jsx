@@ -3,16 +3,19 @@ import GithubContext from "../../context/github/GithubContext";
 import { Link, useParams } from "react-router-dom";
 import Spinner from "../layout/Spinner";
 import { FaCodepen, FaUserFriends, FaUsers } from "react-icons/fa";
+import RepoList from "../layout/repos/RepoList";
 
 function User() {
-  const { user, getUser, loading } = useContext(GithubContext);
+  const { user, getUser, loading, repos, getUserRepos } =
+    useContext(GithubContext);
 
   //path주소로 id넘어옴
   const params = useParams();
-  //console.log(params);
+  //console.log(repos);
 
   useEffect(() => {
     getUser(params.login);
+    getUserRepos(params.login);
   }, []);
 
   //객체분해
@@ -149,6 +152,8 @@ function User() {
             </div>
           </div>
         </div>
+        {/* RepoList */}
+        <RepoList repos={repos} />
       </div>
     </>
   );
