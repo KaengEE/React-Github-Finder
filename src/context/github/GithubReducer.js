@@ -19,7 +19,7 @@ const githubReducer = (state, action) => {
     case "GET_USER":
       return {
         ...state,
-        users: action.payload,
+        user: action.payload, //user에 저장
         loading: false,
       };
     default:
