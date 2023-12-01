@@ -44,7 +44,7 @@ export const GithubProvider = ({ children }) => {
   };
 
   //유저 1명의 정보
-  const getUsers = async (login) => {
+  const getUser = async (login) => {
     setLoading(); //로딩상태
 
     //https://api.github.com/users/:id
@@ -85,6 +85,7 @@ export const GithubProvider = ({ children }) => {
         loading: state.loading,
         searchUsers, //동일할땐 생략가능
         clearUsers,
+        getUser,
       }}
     >
       {children}
