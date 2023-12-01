@@ -15,7 +15,7 @@ function UserSearch() {
     e.preventDefault();
 
     if (text === "") {
-      setAlert("내용을 입력해주세요", "error");
+      setAlert("내용을 입력해주세요!", "error");
     } else {
       searchUsers(text);
       setText("");

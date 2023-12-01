@@ -4,6 +4,7 @@ import Footer from "./components/layout/Footer";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import NotFound from "./components/pages/NotFound";
+import Alert from "./components/layout/Alert";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <div className="flex flex-col justify-between h-screen">
         <Navbar />
         <main className="container mx-auto px-3 pb-12">
+          <Alert />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
